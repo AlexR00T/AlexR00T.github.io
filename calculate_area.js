@@ -16,8 +16,12 @@ function initMap(map) {
             totalCapacity += solarFarm[1] * 0.15; // 150 watts per square meter converted to kW
           }
         });
+		
+	function formatNumber(number) {
+		return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+	}	
 
-        document.getElementById("totalArea").innerText = `Total Surface Area: ${totalArea.toFixed(2)} square meters`;
+        document.getElementById("totalArea").innerText = `Total PV Area:${formatNumber(totalArea.toFixed(0))} m2`; 
 
         // Convert to MW or GW and format the string
         let capacityString;
